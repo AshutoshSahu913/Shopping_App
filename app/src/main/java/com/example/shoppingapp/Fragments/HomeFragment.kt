@@ -1,5 +1,6 @@
 package com.example.shoppingapp.Fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.example.shoppingapp.Adapter.CategoryAdapter
 import com.example.shoppingapp.Adapter.ProductAdapter
 import com.example.shoppingapp.Models.CategoryModel
 import com.example.shoppingapp.Models.ProductModel
+import com.example.shoppingapp.NotificationActivity
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.FragmentHomeBinding
 
@@ -33,6 +35,9 @@ class HomeFragment : Fragment() {
         setUpCategoryRecyclerView()
         setUpProductRecyclerView()
 
+        binding.notificationBtn.setOnClickListener {
+            startActivity(Intent(requireContext(), NotificationActivity::class.java))
+        }
 
         return binding.root
 

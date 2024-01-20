@@ -6,4 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".AllProductActivity">
 
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView3"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:layout_marginStart="10dp"-->
+    <!--        android:layout_marginTop="10dp"-->
+    <!--        android:fontFamily="@font/montserrat_medium"-->
+    <!--        android:text="See More"-->
+    <!--        android:textColor="@color/black"-->
+    <!--        android:textSize="18sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

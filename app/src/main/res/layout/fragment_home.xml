@@ -28,15 +28,16 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <SearchView
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-
+                    android:defaultFocusHighlightEnabled="false"
                     android:layout_weight="1"
                     android:background="@drawable/edit_text_shape"
                     android:iconifiedByDefault="false"
                     android:queryHint="search" />
 
                 <ImageView
+                    android:id="@+id/notificationBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -122,6 +123,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/seeMoreProduct"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
