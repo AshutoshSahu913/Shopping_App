@@ -1,9 +1,12 @@
 package com.example.shoppingapp
 
+import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
+import androidx.appcompat.widget.AppCompatButton
 import com.example.shoppingapp.databinding.ActivitySignUpBinding
 
 class SignUpActivity : AppCompatActivity() {
@@ -52,17 +55,26 @@ class SignUpActivity : AppCompatActivity() {
                         inputConfirmPassword.setBackgroundResource(R.drawable.edit_text_shape_error)
                     }
                     Toast.makeText(
-                        this@SignUpActivity,
-                        "Please fill all the details!",
-                        Toast.LENGTH_SHORT
+                        this@SignUpActivity, "Please fill all the details!", Toast.LENGTH_SHORT
                     ).show()
                 } else {
-                    startActivity(Intent(this@SignUpActivity, HomeActivity::class.java))
-                    Toast.makeText(
-                        this@SignUpActivity,
-                        "Sign up & Login Successfully!",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                    // Create a dialog
+                    val dialog = Dialog(this@SignUpActivity)
+                    dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+                    // Set the content view of the dialog
+                    dialog.setContentView(R.layout.success_register_dailog)
+                    dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
+                    var btn = dialog.findViewById<AppCompatButton>(R.id.doneBtn)
+
+                    btn.setOnClickListener {
+                        startActivity(Intent(this@SignUpActivity, HomeActivity::class.java))
+                        Toast.makeText(
+                            this@SignUpActivity, "Sign up & Login Successfully!", Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    // Show the dialog
+                    dialog.show()
                 }
             }
 
@@ -73,17 +85,13 @@ class SignUpActivity : AppCompatActivity() {
             googleBtn.setOnClickListener {
                 startActivity(Intent(this@SignUpActivity, HomeActivity::class.java))
                 Toast.makeText(
-                    this@SignUpActivity,
-                    "Sign up with Google Successfully!",
-                    Toast.LENGTH_SHORT
+                    this@SignUpActivity, "Sign up with Google Successfully!", Toast.LENGTH_SHORT
                 ).show()
             }
             facebookBtn.setOnClickListener {
                 startActivity(Intent(this@SignUpActivity, HomeActivity::class.java))
                 Toast.makeText(
-                    this@SignUpActivity,
-                    "Sign up with Facebook Successfully!",
-                    Toast.LENGTH_SHORT
+                    this@SignUpActivity, "Sign up with Facebook Successfully!", Toast.LENGTH_SHORT
                 ).show()
             }
         }

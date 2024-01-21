@@ -3,6 +3,7 @@ package com.example.shoppingapp.Adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppingapp.Models.CategoryModel
 import com.example.shoppingapp.databinding.CategoryListBinding
@@ -17,6 +18,11 @@ class CategoryAdapter(var categoryList: ArrayList<CategoryModel>, var context: C
                 categoryImg.setImageResource(model.categoryImg)
                 categoryName.text = model.categoryName
             }
+            itemView.setOnClickListener {
+                Toast.makeText(context, "Category : " + model.categoryName, Toast.LENGTH_SHORT)
+                    .show()
+            }
+
 
         }
 

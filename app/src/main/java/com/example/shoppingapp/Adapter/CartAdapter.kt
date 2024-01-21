@@ -2,19 +2,22 @@ package com.example.shoppingapp.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppingapp.Models.ProductModel
 import com.example.shoppingapp.databinding.FavouriteListBinding
 
-class WishListAdapter(var favList: ArrayList<ProductModel>, var context: Context) :
-    RecyclerView.Adapter<WishListAdapter.MyViewHolder>() {
-
+class CartAdapter(var cartList: ArrayList<ProductModel>, var context: Context) :
+    RecyclerView.Adapter<CartAdapter.MyViewHolder>() {
     inner class MyViewHolder(var binding: FavouriteListBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            val model = favList[position]
+            val model = cartList[position]
             binding.apply {
+
+                hideLayout.visibility = View.VISIBLE
+
                 favImg.setImageResource(model.productImg!!)
                 favProductName.text = model.productName
                 favProductPrice.text = model.productPrice
@@ -22,27 +25,30 @@ class WishListAdapter(var favList: ArrayList<ProductModel>, var context: Context
                 favProductSize.text = model.productSize
                 favProductCode.text = model.productCode
 
-            }
+                itemQty.text = model.productItemCount.toString()
 
+                deleteBtn.setOnClickListener {
+                    cartList.removeAt(position)
+                    notifyDataSetChanged()
+                }
+
+            }
 
         }
 
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): WishListAdapter.MyViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CartAdapter.MyViewHolder {
         var binding = FavouriteListBinding.inflate(LayoutInflater.from(context), parent, false)
         return MyViewHolder(binding)
 
     }
 
-    override fun onBindViewHolder(holder: WishListAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CartAdapter.MyViewHolder, position: Int) {
         holder.bind(position)
     }
 
     override fun getItemCount(): Int {
-        return favList.size
+        return cartList.size
     }
 }

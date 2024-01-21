@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".SignUpActivity">
 
 
@@ -60,6 +61,8 @@
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/montserrat_medium"
                 android:hint="First Name"
+                android:inputType="textPersonName"
+
                 android:paddingStart="20dp"
                 android:textColor="@color/black"
                 tools:ignore="RtlSymmetry" />
@@ -72,6 +75,7 @@
                 android:background="@drawable/edit_text_shape"
                 android:fontFamily="@font/montserrat_medium"
                 android:hint="Last Name"
+                android:inputType="text"
                 android:paddingStart="20dp"
                 android:textColor="@color/black"
                 tools:ignore="RtlSymmetry" />
@@ -85,6 +89,7 @@
             android:background="@drawable/edit_text_shape"
             android:fontFamily="@font/montserrat_medium"
             android:hint="Email"
+            android:inputType="textEmailAddress"
             android:paddingStart="20dp"
             android:textColor="@color/black"
             tools:ignore="RtlSymmetry" />
@@ -123,10 +128,10 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="10dp"
-        android:textAllCaps="false"
         android:background="@drawable/back_btn"
         android:fontFamily="@font/montserrat_semi_bold"
         android:text="Signup"
+        android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
@@ -220,8 +225,8 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <androidx.appcompat.widget.AppCompatButton
-            android:layout_width="match_parent"
             android:id="@+id/facebookBtn"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edit_text_shape"
             android:drawableStart="@drawable/facebook_network_communication_internet_interaction_svgrepo_com"
@@ -231,10 +236,10 @@
             android:textSize="13sp" />
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/googleBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:id="@+id/googleBtn"
             android:background="@drawable/edit_text_shape"
             android:drawableStart="@drawable/google_color_svgrepo_com"
             android:paddingStart="10dp"

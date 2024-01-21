@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="12dp"
+    android:layout_marginTop="5dp"
+    android:elevation="5dp"
+    app:cardCornerRadius="10dp"
     app:cardUseCompatPadding="true">
 
 
@@ -16,16 +18,17 @@
             android:id="@+id/cardView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             app:cardCornerRadius="15dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/favImg"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
+                android:layout_width="75dp"
+                android:layout_height="105dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/frock4" />
         </androidx.cardview.widget.CardView>
@@ -33,13 +36,11 @@
 
         <TextView
             android:id="@+id/favProductName"
-            android:layout_width="wrap_content"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginStart="5dp"
             android:fontFamily="@font/montserrat_medium"
-            android:maxLines="2"
+
             android:text="One Shoulder\nLinen Dress"
             android:textColor="@color/black"
             android:textSize="12sp"
@@ -51,22 +52,19 @@
             android:id="@+id/linearLayout8"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="5dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="@+id/favProductName"
             app:layout_constraintStart_toEndOf="@+id/favProductName"
             app:layout_constraintTop_toTopOf="@+id/favProductName">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="Rs: "
                 android:textColor="@color/black"
-
-                android:textSize="12sp" />
+                android:textSize="11sp" />
 
             <TextView
                 android:id="@+id/favProductPrice"
@@ -75,16 +73,15 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="5740"
-
                 android:textColor="@color/black"
-                android:textSize="13sp" />
+                android:textSize="11sp" />
         </LinearLayout>
 
         <TextView
             android:id="@+id/favProductCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="3dp"
             android:fontFamily="@font/montserrat_medium"
             android:text="GF1025"
             android:textColor="@color/black"
@@ -95,9 +92,8 @@
         <LinearLayout
             android:id="@+id/linearLayout9"
             android:layout_width="wrap_content"
-
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="3dp"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="@+id/favProductCode"
             app:layout_constraintTop_toBottomOf="@+id/favProductCode">
@@ -125,7 +121,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="4dp"
             android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="@+id/favProductCode"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout9">
@@ -141,14 +137,84 @@
 
             <ImageButton
                 android:id="@+id/favProductColor"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:src="@drawable/color_shape1"
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
                 android:background="@android:color/transparent"
-                 />
+                android:elevation="4dp"
+                android:src="@drawable/color_shape4" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/hideLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingEnd="3dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout8"
+            app:layout_constraintTop_toTopOf="@+id/linearLayout8">
+
+            <TextView
+                android:id="@+id/itemQty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/linearLayout8"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout8"
+                app:layout_constraintTop_toTopOf="@+id/linearLayout8" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="7dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Rs: "
+                    android:textColor="@color/black"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/totalItemPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="5740"
+                    android:textColor="@color/black"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/deleteBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:src="@drawable/baseline_close_24"
+                app:layout_constraintBottom_toBottomOf="@+id/linearLayout11"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/linearLayout11" />
+
+
+        </LinearLayout>
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/barrier"

@@ -8,5 +8,6 @@ data class ProductModel(
     var productDis: String? = null,
     var productOffer: String? = null,
     var productSize: String? = null,
-    var productColor: Int? = null
+    var productColor: Int? = null,
+    var productItemCount:Int?=null
 )

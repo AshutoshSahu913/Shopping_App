@@ -37,7 +37,6 @@ class WishListFragment : Fragment() {
     }
 
     private fun setUpRecyclerView() {
-
         val list = ArrayList<ProductModel>()
         list.add(
             ProductModel(
@@ -99,7 +98,6 @@ class WishListFragment : Fragment() {
                 productOffer = "20% off",
                 productSize = "US12",
                 productColor = R.drawable.color_shape3
-
             )
         )
         val adapter = WishListAdapter(list, requireContext())
