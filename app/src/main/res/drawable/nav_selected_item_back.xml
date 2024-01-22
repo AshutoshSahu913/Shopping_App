@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <item android:state_checked="true">
+        <!-- Specify the background for the selected item -->
+        <shape android:shape="rectangle">
+            <solid android:color="@color/blurText" />
+        </shape>
+    </item>
+
+</selector>

@@ -1,11 +1,13 @@
 package com.example.shoppingapp.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppingapp.Models.ProductModel
 import com.example.shoppingapp.databinding.FavouriteListBinding
+import com.example.shoppingapp.productDetailsActivity
 
 class WishListAdapter(var favList: ArrayList<ProductModel>, var context: Context) :
     RecyclerView.Adapter<WishListAdapter.MyViewHolder>() {
@@ -22,9 +24,15 @@ class WishListAdapter(var favList: ArrayList<ProductModel>, var context: Context
                 favProductSize.text = model.productSize
                 favProductCode.text = model.productCode
 
+                itemView.setOnClickListener {
+                    val intent = Intent(context, productDetailsActivity::class.java)
+                    intent.putExtra("name", model.productName)
+                    intent.putExtra("price", model.productPrice)
+                    intent.putExtra("img", model.productImg)
+
+                    context.startActivity(intent)
+                }
             }
-
-
         }
 
     }

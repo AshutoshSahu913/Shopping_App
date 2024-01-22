@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.constants.AnimationTypes
 import com.denzcoskun.imageslider.constants.ScaleTypes
@@ -46,7 +47,14 @@ class HomeFragment : Fragment() {
         }
 
         binding.seeMoreProduct.setOnClickListener {
-            startActivity(Intent(requireContext(), AllProductActivity::class.java))
+//            startActivity(Intent(requireContext(), AllProductActivity::class.java))
+            // Replace with the code to navigate to WishlistFragment
+            val wishlistFragment = WishListFragment()
+            val transaction: FragmentTransaction =
+                requireActivity().supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.container, wishlistFragment)
+            transaction.addToBackStack(null)  // Optional: Add the transaction to the back stack
+            transaction.commit()
         }
 
         binding.seeMoreCategory.setOnClickListener {
@@ -80,7 +88,6 @@ class HomeFragment : Fragment() {
 
         imageSlider.setItemClickListener(object : ItemClickListener {
             override fun doubleClick(position: Int) {
-
             }
 
             override fun onItemSelected(position: Int) {
@@ -123,28 +130,29 @@ class HomeFragment : Fragment() {
                 R.drawable.frock4,
                 "GF1202",
                 "7180",
-                "20% off"
+                "10% off"
             )
         )
 
         productModels.add(
             ProductModel(
-                "One Shoulder \n" + "Linen Dress",
-                "5740",
+                "Puff Sleeve \n" + "Dress",
+                "5270",
                 R.drawable.frock2,
-                "GF1202",
-                "7180",
-                "20% off"
+                "GF1047",
+                "3000",
+                "30% off"
             )
         )
         productModels.add(
             ProductModel(
-                "One Shoulder \n" + "Linen Dress",
+                "Cross Stitch \n" +
+                        "Top",
                 "5740",
                 R.drawable.blouse2,
                 "GF1202",
-                "7180",
-                "20% off"
+                "7280",
+                "25% off"
             )
         )
         productModels.add(
@@ -152,42 +160,57 @@ class HomeFragment : Fragment() {
                 "One S" +
                         "houlder \n" + "Linen Dress",
                 "5740",
-                R.drawable.blouse2,
+                R.drawable.frock4,
                 "GF1202",
-                "7180",
-                "20% off"
+                "2580",
+                "15% off"
             )
         )
         productModels.add(
             ProductModel(
                 "One Shoulder \n" + "Linen Dress",
                 "5740",
-                R.drawable.frock1,
+                R.drawable.frock4,
                 "GF1202",
                 "7180",
-                "20% off"
+                "10% off"
             )
         )
+
         productModels.add(
             ProductModel(
-                "One Shoulder \n" + "Linen Dress",
-                "5740",
-                R.drawable.blouse2,
-                "GF1202",
-                "7180",
-                "20% off"
-            )
-        )
-        productModels.add(
-            ProductModel(
-                "One Shoulder \n" + "Linen Dress",
-                "5740",
+                "Puff Sleeve \n" + "Dress",
+                "5270",
                 R.drawable.frock2,
-                "GF1202",
-                "7180",
-                "20% off"
+                "GF1047",
+                "3000",
+                "30% off"
             )
         )
+        productModels.add(
+            ProductModel(
+                "Cross Stitch \n" +
+                        "Top",
+                "5740",
+                R.drawable.blouse2,
+                "GF1223",
+                "7280",
+                "25% off"
+            )
+        )
+        productModels.add(
+            ProductModel(
+                "One S" +
+                        "houlder \n" + "Linen Dress",
+                "5740",
+                R.drawable.frock4,
+                "GF1202",
+                "2580",
+                "15% off"
+            )
+        )
+
+
         val adapter = ProductAdapter(productModels, requireContext())
         binding.rvProduct.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)

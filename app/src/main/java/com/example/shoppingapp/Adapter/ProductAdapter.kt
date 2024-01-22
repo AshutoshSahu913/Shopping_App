@@ -1,9 +1,12 @@
 package com.example.shoppingapp.Adapter
 
+import android.R
 import android.content.Context
 import android.content.Intent
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shoppingapp.Models.ProductModel
 import com.example.shoppingapp.databinding.ProductListBinding
@@ -20,18 +23,23 @@ class ProductAdapter(var saleList: ArrayList<ProductModel>, var context: Context
                 productName.text = model.productName
                 productPrice.text = model.productPrice
                 productImg.setImageResource(model.productImg!!)
-//                productCode.text = model.productCode
-//                productDiscount.text = model.productDis
-//                productOffer.text = model.productOffer
+                productCode.text = model.productCode
+                productOffer.text = model.productOffer
+
+                productDiscount.text = model.productDis
+                productDiscount.paintFlags =
+                    productDiscount.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
             }
+
+
             itemView.setOnClickListener {
                 val intent = Intent(context, productDetailsActivity::class.java)
                 intent.putExtra("name", model.productName)
                 intent.putExtra("price", model.productPrice)
                 intent.putExtra("img", model.productImg)
-//                intent.putExtra("code", model.productName)
-//                intent.putExtra("discount", model.productName)
-//                intent.putExtra("offer", model.productName)
+//                intent.putExtra("code", model.productCode)
+//                intent.putExtra("discount", model.productDis)
+//                intent.putExtra("offer", model.productOffer)
                 context.startActivity(intent)
             }
         }

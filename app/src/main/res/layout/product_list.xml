@@ -99,6 +99,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="5740"
+
                 android:textColor="#5C5757"
                 android:textSize="13sp" />
 

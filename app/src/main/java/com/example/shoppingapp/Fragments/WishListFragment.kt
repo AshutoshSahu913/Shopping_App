@@ -32,7 +32,6 @@ class WishListFragment : Fragment() {
         setUpRecyclerView()
 
 
-
         return binding.root
     }
 
@@ -53,26 +52,27 @@ class WishListFragment : Fragment() {
 
         list.add(
             ProductModel(
-                productName = "One Shoulder \n" + "Linen Dress",
-                productPrice = "5740",
+                productName = "Cross Stitch \n" +
+                        "Top",
+                productPrice = "3000",
                 productImg = R.drawable.frock2,
-                productCode = "GF1202",
-                productDis = "7180",
+                productCode = "GF1267",
+                productDis = "5400",
                 productOffer = "20% off",
-                productSize = "US12",
+                productSize = "US8",
                 productColor = R.drawable.color_shape2
             )
         )
         list.add(
             ProductModel(
-                productName = "One Shoulder \n" + "Linen Dress",
-                productPrice = "5740",
+                productName = " Puff Sleeve \nDress",
+                productPrice = "2740",
                 productImg = R.drawable.frock3,
                 productCode = "GF1202",
-                productDis = "7180",
-                productOffer = "20% off",
-                productSize = "US12",
-                productColor = R.drawable.color_shape4
+                productDis = "4680",
+                productOffer = "15% off",
+                productSize = "US10",
+                productColor = R.drawable.color_shape3
 
             )
         )
@@ -81,25 +81,53 @@ class WishListFragment : Fragment() {
                 productName = "One Shoulder \n" + "Linen Dress",
                 productPrice = "5740",
                 productImg = R.drawable.frock4,
-                productCode = "GF1202",
+                productCode = "GF1201",
                 productDis = "7180",
                 productOffer = "20% off",
                 productSize = "US12",
-                productColor = R.drawable.color_shape5
+                productColor = R.drawable.color_shape4
+            )
+        )
+
+        list.add(
+            ProductModel(
+                productName = "Cross Stitch \n" +
+                        "Top",
+                productPrice = "3000",
+                productImg = R.drawable.frock2,
+                productCode = "GF1267",
+                productDis = "5400",
+                productOffer = "20% off",
+                productSize = "US8",
+                productColor = R.drawable.color_shape2
+            )
+        )
+        list.add(
+            ProductModel(
+                productName = " Puff Sleeve \nDress",
+                productPrice = "2740",
+                productImg = R.drawable.frock3,
+                productCode = "GF1202",
+                productDis = "4680",
+                productOffer = "15% off",
+                productSize = "US10",
+                productColor = R.drawable.color_shape3
+
             )
         )
         list.add(
             ProductModel(
                 productName = "One Shoulder \n" + "Linen Dress",
                 productPrice = "5740",
-                productImg = R.drawable.blouse2,
-                productCode = "GF1202",
+                productImg = R.drawable.frock4,
+                productCode = "GF1201",
                 productDis = "7180",
                 productOffer = "20% off",
                 productSize = "US12",
-                productColor = R.drawable.color_shape3
+                productColor = R.drawable.color_shape4
             )
         )
+
         val adapter = WishListAdapter(list, requireContext())
         binding.rvFav.layoutManager = LinearLayoutManager(requireContext())
         binding.rvFav.adapter = adapter

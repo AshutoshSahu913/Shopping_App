@@ -57,4 +57,8 @@ dependencies {
     //glide library for image fetching from cloud
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
+
+    //to add image picker library
+    implementation ("com.github.dhaval2404:imagepicker:2.1")
+
 }

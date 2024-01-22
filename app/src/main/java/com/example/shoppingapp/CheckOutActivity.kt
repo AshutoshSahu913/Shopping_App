@@ -11,35 +11,35 @@ class CheckOutActivity : AppCompatActivity() {
         ActivityCheckOutBinding.inflate(layoutInflater)
     }
 
-    lateinit var email: String
-    lateinit var country: String
-    lateinit var firstName: String
-    lateinit var lastName: String
-    lateinit var address: String
-    lateinit var city: String
-    lateinit var postalCode: String
-    lateinit var contactNo: String
+    private lateinit var email: String
+    private lateinit var country: String
+    private lateinit var firstName: String
+    private lateinit var lastName: String
+    private lateinit var address: String
+    private lateinit var city: String
+    private lateinit var postalCode: String
+    private lateinit var contactNo: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         binding.apply {
 
-            email = inputEmail.text.toString().trim()
-            country = inputCountry.text.toString().trim()
-            firstName = inputFirstName.text.toString().trim()
-            lastName = inputLastName.text.toString().trim()
-            address = inputAddress.text.toString().trim()
-            city = inputCity.text.toString().trim()
-            postalCode = inputPostalCode.text.toString().trim()
-            contactNo = inputContactNumber.text.toString().trim()
-
-
-
             backBtn.setOnClickListener {
                 finish()
             }
             continueShippingBtn.setOnClickListener {
+
+                email = inputEmail.text.toString().trim()
+                country = inputCountry.text.toString().trim()
+                firstName = inputFirstName.text.toString().trim()
+                lastName = inputLastName.text.toString().trim()
+                address = inputAddress.text.toString().trim()
+                city = inputCity.text.toString().trim()
+                postalCode = inputPostalCode.text.toString().trim()
+                contactNo = inputContactNumber.text.toString().trim()
+
+
                 inputEmail.setBackgroundResource(R.drawable.edit_text_shape)
                 inputFirstName.setBackgroundResource(R.drawable.edit_text_shape)
                 inputAddress.setBackgroundResource(R.drawable.edit_text_shape)
@@ -47,18 +47,14 @@ class CheckOutActivity : AppCompatActivity() {
                 inputContactNumber.setBackgroundResource(R.drawable.edit_text_shape)
 
 
-                if ((email.isBlank() || firstName.isBlank() || address.isBlank() || postalCode.isBlank() || contactNo.isBlank())) {
+                if (!(email.isBlank() || firstName.isBlank() || address.isBlank() || postalCode.isBlank() || contactNo.isBlank())) {
                     startActivity(Intent(this@CheckOutActivity, PaymentsActivity::class.java))
                     Toast.makeText(this@CheckOutActivity, "Continue Shipping", Toast.LENGTH_SHORT)
                         .show()
+
                 } else {
-                    Toast.makeText(
-                        this@CheckOutActivity,
-                        "Please fill all the fields",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
                     if (email.isBlank()) {
+                        inputEmail.requestFocus()
                         inputEmail.setBackgroundResource(R.drawable.edit_text_shape_error)
                     }
                     if (firstName.isBlank()) {
@@ -73,14 +69,14 @@ class CheckOutActivity : AppCompatActivity() {
                     if (contactNo.isBlank()) {
                         inputContactNumber.setBackgroundResource(R.drawable.edit_text_shape_error)
                     }
-
+                    Toast.makeText(
+                        this@CheckOutActivity,
+                        "Please fill all the fields",
+                        Toast.LENGTH_SHORT
+                    )
+                        .show()
                 }
-
-
             }
-
         }
-
-
     }
 }

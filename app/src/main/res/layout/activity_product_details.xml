@@ -307,6 +307,7 @@
                 app:layout_constraintTop_toBottomOf="@id/addToCartBtn">
 
                 <ImageButton
+                    android:id="@+id/like"
                     android:layout_width="wrap_content"
                     android:layout_gravity="center"
                     android:layout_height="wrap_content"
@@ -316,6 +317,7 @@
                     app:tint="@color/appColor" />
 
                 <TextView
+                    android:id="@+id/addToWishListTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

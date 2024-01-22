@@ -135,15 +135,14 @@
                 android:textColor="@color/black"
                 android:textSize="12sp" />
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/favProductColor"
                 android:layout_width="15dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="5dp"
-                android:background="@android:color/transparent"
                 android:elevation="4dp"
-                android:src="@drawable/color_shape4" />
+                android:src="@drawable/color_shape1" />
         </LinearLayout>
 
         <LinearLayout
