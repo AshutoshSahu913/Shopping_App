@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="5dp"
-    android:elevation="5dp"
     app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
     app:cardUseCompatPadding="true">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+
+        >
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView2"
@@ -27,8 +28,8 @@
 
             <ImageView
                 android:id="@+id/favImg"
-                android:layout_width="75dp"
-                android:layout_height="105dp"
+                android:layout_width="60dp"
+                android:layout_height="95dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/frock4" />
         </androidx.cardview.widget.CardView>
@@ -162,7 +163,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="3dp"
                 android:layout_weight="1"
                 android:fontFamily="@font/montserrat_medium"
                 android:gravity="center"
@@ -178,7 +179,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="7dp"
+                android:layout_marginStart="4dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -203,10 +204,13 @@
 
             <ImageButton
                 android:id="@+id/deleteBtn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@android:color/transparent"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/circle"
+                android:clickable="true"
+                android:padding="2dp"
                 android:src="@drawable/baseline_close_24"
                 app:layout_constraintBottom_toBottomOf="@+id/linearLayout11"
                 app:layout_constraintEnd_toEndOf="parent"

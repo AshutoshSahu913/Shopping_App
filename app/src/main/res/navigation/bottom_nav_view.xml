@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.shoppingapp.Fragments.HomeFragment"
+        android:name="com.example.shoppingapp.ui_layer.Sheets.Fragments.Home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/wishListFragment"
-        android:name="com.example.shoppingapp.Fragments.WishListFragment"
+        android:name="com.example.shoppingapp.ui_layer.Sheets.Fragments.WishList.WishListFragment"
         android:label="fragment_wish_list"
         tools:layout="@layout/fragment_wish_list" />
     <fragment
         android:id="@+id/cartFragment"
-        android:name="com.example.shoppingapp.Fragments.CartFragment"
+        android:name="com.example.shoppingapp.ui_layer.Sheets.Fragments.Cart.CartFragment"
         android:label="fragment_cart"
         tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="com.example.shoppingapp.Fragments.ProfileFragment"
+        android:name="com.example.shoppingapp.ui_layer.Sheets.Fragments.Profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
