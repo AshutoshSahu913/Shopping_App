@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:title="Home"
+    <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/home_1392_svgrepo_com"/>
-    <item android:title="Wishlist"
+        android:icon="@drawable/home_1392_svgrepo_com"
+        android:menuCategory="secondary"
+        android:title="Home" />
+    <item
         android:id="@+id/wishListFragment"
-        android:icon="@drawable/heart_svgrepo_com"/>
-    <item android:title="Cart"
+        android:icon="@drawable/heart_svgrepo_com"
+        android:menuCategory="secondary"
+        android:title="Wishlist" />
+    <item
         android:id="@+id/cartFragment"
-        android:icon="@drawable/cart_shopping_svgrepo_com"/>
-    <item android:title="Profile"
+        android:icon="@drawable/cart_shopping_svgrepo_com"
+        android:menuCategory="secondary"
+        android:title="Cart" />
+    <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/profile_svgrepo_com"/>
+        android:icon="@drawable/profile_svgrepo_com"
+        android:menuCategory="secondary"
+        android:title="Profile" />
 </menu>

@@ -2,6 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="appColor">#F68B8B</color>
+    <color name="appColor">#00FFC2</color>
+    <color name="red">#FF5252</color>
+<!--    <color name="appColor">#F68B8B</color>-->
     <color name="blurText">#8C8585</color>
 </resources>
