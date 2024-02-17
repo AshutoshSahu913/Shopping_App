@@ -1,6 +1,5 @@
 package com.example.shoppingapp.ui_layer.Sheets.Activitys.SignUp
 
-import android.app.Dialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,18 +7,15 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.shoppingapp.Comman.returnText
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.ActivitySignUpBinding
-import com.example.shoppingapp.ui_layer.Sheets.Activitys.Home.HomeActivity
+import com.example.shoppingapp.ui_layer.Sheets.Activitys.HomeActivity.HomeActivity
 import com.example.shoppingapp.ui_layer.Sheets.Activitys.Login.LoginActivity
 import com.github.ybq.android.spinkit.sprite.Sprite
 import com.github.ybq.android.spinkit.style.Circle
-import com.google.firebase.Firebase
-import com.google.firebase.auth.auth
 
 class SignUpActivity : AppCompatActivity() {
     private val binding: ActivitySignUpBinding by lazy {

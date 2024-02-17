@@ -47,7 +47,7 @@
                 android:background="@drawable/background_btn"
                 android:backgroundTint="@color/white"
                 android:padding="10dp"
-                android:src="@drawable/baseline_arrow_back_ios_24"
+                android:src="@drawable/baseline_arrow_back_ios_new_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

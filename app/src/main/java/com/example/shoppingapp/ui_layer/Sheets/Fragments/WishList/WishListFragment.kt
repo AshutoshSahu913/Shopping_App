@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shoppingapp.ui_layer.Adapter.WishListAdapter
-import com.example.shoppingapp.ui_layer.Models.ProductModel
 
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.FragmentWishListBinding
+import com.example.shoppingapp.ui_layer.Models.ProductModel
 
 
 class WishListFragment : Fragment() {
@@ -29,13 +29,13 @@ class WishListFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentWishListBinding.inflate(inflater, container, false)
 
-        setUpRecyclerView()
+//        setUpRecyclerView()
 
 
         return binding.root
     }
 
-    private fun setUpRecyclerView() {
+    /*private fun setUpRecyclerView() {
         val list = ArrayList<ProductModel>()
         list.add(
             ProductModel(
@@ -131,7 +131,7 @@ class WishListFragment : Fragment() {
         val adapter = WishListAdapter(list, requireContext())
         binding.rvFav.layoutManager = LinearLayoutManager(requireContext())
         binding.rvFav.adapter = adapter
-    }
+    }*/
 
 
 }

@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.appcompat.widget.AppCompatButton
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.ActivityPaymentsBinding
-import com.example.shoppingapp.ui_layer.Sheets.Activitys.Home.HomeActivity
+import com.example.shoppingapp.ui_layer.Sheets.Activitys.HomeActivity.HomeActivity
 
 class PaymentsActivity : AppCompatActivity() {
     val binding: ActivityPaymentsBinding by lazy {

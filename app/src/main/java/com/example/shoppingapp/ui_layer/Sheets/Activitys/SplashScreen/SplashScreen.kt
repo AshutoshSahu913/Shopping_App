@@ -5,9 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.ActivitySplashScreenBinding
-import com.example.shoppingapp.ui_layer.Sheets.Activitys.Home.HomeActivity
+import com.example.shoppingapp.ui_layer.Sheets.Activitys.HomeActivity.HomeActivity
 import com.example.shoppingapp.ui_layer.Sheets.Activitys.Login.LoginActivity
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth

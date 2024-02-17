@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shoppingapp.ui_layer.Models.ProductModel
+import com.example.shoppingapp.Comman.Products
 import com.example.shoppingapp.databinding.FavouriteListBinding
 
-class CartAdapter(var cartList: ArrayList<ProductModel>, var context: Context) :
+class CartAdapter(var cartList: ArrayList<Products>, var context: Context) :
     RecyclerView.Adapter<CartAdapter.MyViewHolder>() {
     inner class MyViewHolder(var binding: FavouriteListBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -18,14 +18,14 @@ class CartAdapter(var cartList: ArrayList<ProductModel>, var context: Context) :
 
                 hideLayout.visibility = View.VISIBLE
 
-                favImg.setImageResource(model.productImg!!)
-                favProductName.text = model.productName
-                favProductPrice.text = model.productPrice
-                favProductColor.setBackgroundResource(model.productColor!!)
-                favProductSize.text = model.productSize
-                favProductCode.text = model.productCode
-
-                itemQty.text = model.productItemCount.toString()
+//                favImg.setImageResource(model.productImg!!)
+//                favProductName.text = model.productName
+//                favProductPrice.text = model.productPrice
+//                favProductColor.setBackgroundResource(model.productColor!!)
+//                favProductSize.text = model.productSize
+//                favProductCode.text = model.productCode
+//
+//                itemQty.text = model.productItemCount.toString()
 
                 deleteBtn.setOnClickListener {
                     cartList.removeAt(position)

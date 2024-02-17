@@ -79,6 +79,7 @@
 
 
         <LinearLayout
+            android:paddingEnd="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -93,7 +94,7 @@
                 android:textSize="12sp" />
 
             <TextView
-                android:id="@+id/productDiscount"
+                android:id="@+id/productMRP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -104,11 +105,11 @@
                 android:textSize="13sp" />
 
             <TextView
-                android:id="@+id/productOffer"
+                android:id="@+id/productDiscountPer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="4dp"
+                android:paddingStart="5dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="20% off"
                 android:textColor="@color/appColor"

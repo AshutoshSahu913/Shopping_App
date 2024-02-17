@@ -1,6 +1,5 @@
 package com.example.shoppingapp.ui_layer.Sheets.Activitys.SignUp
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Dialog
 import android.content.Intent
@@ -10,7 +9,7 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.lifecycle.ViewModel
 import com.example.shoppingapp.R
-import com.example.shoppingapp.ui_layer.Sheets.Activitys.Home.HomeActivity
+import com.example.shoppingapp.ui_layer.Sheets.Activitys.HomeActivity.HomeActivity
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
 

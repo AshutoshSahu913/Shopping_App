@@ -34,20 +34,22 @@
             android:name=".ui_layer.Sheets.Activitys.Notification.NotificationActivity"
             android:exported="false" />
         <activity
-            android:name=".ui_layer.Sheets.Activitys.Home.HomeActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".ui_layer.Sheets.Activitys.SignUp.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui_layer.Sheets.Activitys.Login.LoginActivity"
-            android:exported="true">
+            android:name=".ui_layer.Sheets.Activitys.HomeActivity.HomeActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui_layer.Sheets.Activitys.SignUp.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui_layer.Sheets.Activitys.Login.LoginActivity"
+            android:exported="false">
+
         </activity>
     </application>
 

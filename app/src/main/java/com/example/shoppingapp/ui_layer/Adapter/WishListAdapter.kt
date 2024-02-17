@@ -5,8 +5,8 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.shoppingapp.ui_layer.Models.ProductModel
 import com.example.shoppingapp.databinding.FavouriteListBinding
+import com.example.shoppingapp.ui_layer.Models.ProductModel
 import com.example.shoppingapp.ui_layer.Sheets.Activitys.ProductDetails.ProductDetailsActivity
 
 class WishListAdapter(var favList: ArrayList<ProductModel>, var context: Context) :
@@ -17,18 +17,18 @@ class WishListAdapter(var favList: ArrayList<ProductModel>, var context: Context
         fun bind(position: Int) {
             val model = favList[position]
             binding.apply {
-                favImg.setImageResource(model.productImg!!)
-                favProductName.text = model.productName
-                favProductPrice.text = model.productPrice
-                favProductColor.setBackgroundResource(model.productColor!!)
-                favProductSize.text = model.productSize
-                favProductCode.text = model.productCode
+//                favImg.setImageResource(model.productImg!!)
+//                favProductName.text = model.productName
+//                favProductPrice.text = model.productPrice
+//                favProductColor.setBackgroundResource(model.productColor!!)
+//                favProductSize.text = model.productSize
+//                favProductCode.text = model.productCode
 
                 itemView.setOnClickListener {
                     val intent = Intent(context, ProductDetailsActivity::class.java)
-                    intent.putExtra("name", model.productName)
-                    intent.putExtra("price", model.productPrice)
-                    intent.putExtra("img", model.productImg)
+//                    intent.putExtra("name", model.productName)
+//                    intent.putExtra("price", model.productPrice)
+//                    intent.putExtra("img", model.productImg)
 
                     context.startActivity(intent)
                 }

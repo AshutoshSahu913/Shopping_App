@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.shoppingapp.Comman.returnText
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.ActivityLoginBinding
-import com.example.shoppingapp.ui_layer.Sheets.Activitys.Home.HomeActivity
+import com.example.shoppingapp.ui_layer.Sheets.Activitys.HomeActivity.HomeActivity
 import com.example.shoppingapp.ui_layer.Sheets.Activitys.SignUp.SignUpActivity
 
 
