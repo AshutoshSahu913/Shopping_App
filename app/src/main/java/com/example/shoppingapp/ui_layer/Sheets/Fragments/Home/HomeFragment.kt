@@ -8,15 +8,18 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.constants.AnimationTypes
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
+import com.example.shoppingapp.Comman.Products
 import com.example.shoppingapp.ui_layer.Adapter.CategoryAdapter
-import com.example.shoppingapp.ui_layer.Adapter.ProductAdapter
+import com.example.shoppingapp.ui_layer.Adapter.ProductSaleAdapter
 import com.example.shoppingapp.ui_layer.Models.CategoryModel
-import com.example.shoppingapp.ui_layer.Models.ProductModel
 import com.example.shoppingapp.ui_layer.Sheets.Activitys.Notification.NotificationActivity
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.FragmentHomeBinding
@@ -24,11 +27,13 @@ import com.example.shoppingapp.ui_layer.Sheets.Fragments.WishList.WishListFragme
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
-
+    lateinit var homeViewModel: HomeFragmentViewModel
+    lateinit var productList: ArrayList<Products>
+    lateinit var adapter: ProductSaleAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
 
@@ -37,10 +42,23 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
+        val _homeViewModel by viewModels<HomeFragmentViewModel>(
+            factoryProducer = {
+                object : ViewModelProvider.Factory {
+                    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                        return HomeFragmentViewModel(requireActivity()) as T
+                    }
+                }
+            }
+        )
+        homeViewModel = _homeViewModel
+        homeViewModel
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
+
         setUpCategoryRecyclerView()
         setUpProductRecyclerView()
+        imageSlider()
 
         binding.notificationBtn.setOnClickListener {
             startActivity(Intent(requireContext(), NotificationActivity::class.java))
@@ -68,6 +86,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setUpProductRecyclerView()
+    }
+
+
+    fun imageSlider() {
 
         //add imageSlider is here
         val imageList = ArrayList<SlideModel>()
@@ -119,103 +143,17 @@ class HomeFragment : Fragment() {
         binding.rvCategory.adapter = adapter
     }
 
-
     private fun setUpProductRecyclerView() {
+        productList = arrayListOf()
+        adapter = ProductSaleAdapter(productList, requireContext())
 
-        val productModels = ArrayList<ProductModel>()
-        productModels.add(
-            ProductModel(
-                "One Shoulder \n" + "Linen Dress",
-                "5740",
-                R.drawable.frock4,
-                "GF1202",
-                "7180",
-                "10% off"
-            )
-        )
-
-        productModels.add(
-            ProductModel(
-                "Puff Sleeve \n" + "Dress",
-                "5270",
-                R.drawable.frock2,
-                "GF1047",
-                "3000",
-                "30% off"
-            )
-        )
-        productModels.add(
-            ProductModel(
-                "Cross Stitch \n" +
-                        "Top",
-                "5740",
-                R.drawable.blouse2,
-                "GF1202",
-                "7280",
-                "25% off"
-            )
-        )
-        productModels.add(
-            ProductModel(
-                "One S" +
-                        "houlder \n" + "Linen Dress",
-                "5740",
-                R.drawable.frock4,
-                "GF1202",
-                "2580",
-                "15% off"
-            )
-        )
-        productModels.add(
-            ProductModel(
-                "One Shoulder \n" + "Linen Dress",
-                "5740",
-                R.drawable.frock4,
-                "GF1202",
-                "7180",
-                "10% off"
-            )
-        )
-
-        productModels.add(
-            ProductModel(
-                "Puff Sleeve \n" + "Dress",
-                "5270",
-                R.drawable.frock2,
-                "GF1047",
-                "3000",
-                "30% off"
-            )
-        )
-        productModels.add(
-            ProductModel(
-                "Cross Stitch \n" +
-                        "Top",
-                "5740",
-                R.drawable.blouse2,
-                "GF1223",
-                "7280",
-                "25% off"
-            )
-        )
-        productModels.add(
-            ProductModel(
-                "One S" +
-                        "houlder \n" + "Linen Dress",
-                "5740",
-                R.drawable.frock4,
-                "GF1202",
-                "2580",
-                "15% off"
-            )
-        )
-
-
-        val adapter = ProductAdapter(productModels, requireContext())
         binding.rvProduct.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvProduct.adapter = adapter
 
+        homeViewModel.getTop5Data {
+            adapter.updateProductList(it)
+        }
     }
 
 
