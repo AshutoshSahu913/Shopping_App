@@ -167,10 +167,27 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintBottom_toBottomOf="parent"
+
                 app:layout_constraintEnd_toStartOf="@+id/guideline2"
                 app:layout_constraintStart_toStartOf="@+id/guideline"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+                tools:itemCount="1"
                 tools:listitem="@layout/product_list" />
+
+
+            <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/loaderHome"
+                style="@style/SpinKitView.Large.Circle"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:visibility="gone"
+                app:SpinKit_Color="@color/appColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline"

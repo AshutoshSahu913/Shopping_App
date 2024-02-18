@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -24,6 +25,8 @@ import com.example.shoppingapp.ui_layer.Sheets.Activitys.Notification.Notificati
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.FragmentHomeBinding
 import com.example.shoppingapp.ui_layer.Sheets.Fragments.WishList.WishListFragment
+import com.github.ybq.android.spinkit.sprite.Sprite
+import com.github.ybq.android.spinkit.style.Circle
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
@@ -31,7 +34,6 @@ class HomeFragment : Fragment() {
     lateinit var productList: ArrayList<Products>
     lateinit var adapter: ProductSaleAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         arguments?.let {
         }
@@ -56,8 +58,9 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentHomeBinding.inflate(inflater, container, false)
 
+        loader()
+        binding.loaderHome.visibility = View.VISIBLE
         setUpCategoryRecyclerView()
-        setUpProductRecyclerView()
         imageSlider()
 
         binding.notificationBtn.setOnClickListener {
@@ -84,10 +87,18 @@ class HomeFragment : Fragment() {
 
     }
 
+    fun loader() {
+        val progressBar = binding.loaderHome as ProgressBar
+        val circle: Sprite = Circle()
+        progressBar.indeterminateDrawable = circle
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         setUpProductRecyclerView()
+
     }
 
 
@@ -152,6 +163,7 @@ class HomeFragment : Fragment() {
         binding.rvProduct.adapter = adapter
 
         homeViewModel.getTop5Data {
+//            binding.loaderHome.visibility = View.GONE
             adapter.updateProductList(it)
         }
     }
