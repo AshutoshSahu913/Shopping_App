@@ -24,6 +24,7 @@ import com.example.shoppingapp.ui_layer.Models.CategoryModel
 import com.example.shoppingapp.ui_layer.Sheets.Activitys.Notification.NotificationActivity
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.FragmentHomeBinding
+import com.example.shoppingapp.ui_layer.Sheets.Activitys.AllProduct.AllProductActivity
 import com.example.shoppingapp.ui_layer.Sheets.Fragments.WishList.WishListFragment
 import com.github.ybq.android.spinkit.sprite.Sprite
 import com.github.ybq.android.spinkit.style.Circle
@@ -70,12 +71,14 @@ class HomeFragment : Fragment() {
         binding.seeMoreProduct.setOnClickListener {
 //            startActivity(Intent(requireContext(), AllProductActivity::class.java))
             // Replace with the code to navigate to WishlistFragment
-            val wishlistFragment = WishListFragment()
-            val transaction: FragmentTransaction =
-                requireActivity().supportFragmentManager.beginTransaction()
-            transaction.replace(R.id.container, wishlistFragment)
-            transaction.addToBackStack(null)  // Optional: Add the transaction to the back stack
-            transaction.commit()
+            startActivity(Intent(requireContext(), AllProductActivity::class.java))
+
+//            val wishlistFragment = WishListFragment()
+//            val transaction: FragmentTransaction =
+//                requireActivity().supportFragmentManager.beginTransaction()
+//            transaction.replace(R.id.container, wishlistFragment)
+//            transaction.addToBackStack(null)  // Optional: Add the transaction to the back stack
+//            transaction.commit()
         }
 
         binding.seeMoreCategory.setOnClickListener {

@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import coil.load
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.ActivityProductDetailsBinding
 import com.example.shoppingapp.ui_layer.Sheets.Activitys.CheckOut.CheckOutActivity
@@ -15,28 +16,29 @@ class ProductDetailsActivity : AppCompatActivity() {
         ActivityProductDetailsBinding.inflate(layoutInflater)
     }
 
-    @SuppressLint("SetTextI18n")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val intent = intent
         val itemName = intent.getStringExtra("name")
-        val itemPrice = intent.getStringExtra("price")
+        val itemPrice = intent.getLongExtra("price",0)
         val itemImg = intent.getIntExtra("img", 0)
-        val itemDis = intent.getStringExtra("discount")
-        val itemCode = intent.getStringExtra("code")
-        val itemColor = intent.getIntExtra("color", 0)
+//        val itemDis = intent.getStringExtra("discount")
+//        val itemCode = intent.getStringExtra("code")
+
+//        val itemColor = intent.getIntExtra("color", 0)
 
 
         with(binding) {
             productDetailsName.text = itemName
-            productDetailsPrice.text = itemPrice
-            productDetailsImg.setImageResource(itemImg)
-
+            productDetailsPrice.text = itemPrice.toString()
+            productDetailsImg.load(itemImg) {
+                placeholder(R.drawable.placeholder)
+            }
             productDetailsDescription.text =
-                "$itemName\nRs :$itemPrice\n${productDetailsDescription.text}"
-//            Glide.with(this@productDetailsActivity).load(Uri.parse(itemImg)).into(productDetailsImg)
-
+                "$itemName\nRs :${itemPrice}\n${productDetailsDescription.text}"
         }
         binding.backBtn.setOnClickListener {
             finish()

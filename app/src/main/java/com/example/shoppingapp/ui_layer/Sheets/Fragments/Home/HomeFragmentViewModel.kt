@@ -16,10 +16,10 @@ class HomeFragmentViewModel(var activity: Activity) : ViewModel() {
 
     fun getTop5Data(function: (productList: ArrayList<Products>) -> Unit) {
         val tempList = ArrayList<Products>()
-        Firebase.firestore.collection(PRODUCT_PATH)
+        Firebase.firestore.collection(PRODUCT_PATH).limit(5)
             .get().addOnSuccessListener {
-                val loader = activity.findViewById<ProgressBar>(R.id.loaderHome)
-                loader.visibility = View.GONE
+                val loader = activity.findViewById<ProgressBar?>(R.id.loaderHome)
+                loader?.visibility = View.GONE
                 tempList.clear()
                 for (i in it.documents) {
                     val tempProduct = i.toObject<Products>()
@@ -29,5 +29,4 @@ class HomeFragmentViewModel(var activity: Activity) : ViewModel() {
                 function(tempList)
             }
     }
-
 }

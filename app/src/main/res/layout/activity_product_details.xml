@@ -14,8 +14,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/productDetailsImg"
@@ -314,7 +313,7 @@
                     android:layout_marginEnd="5dp"
                     android:background="@android:color/transparent"
                     android:src="@drawable/heart_svgrepo_com"
-                    app:tint="@color/appColor" />
+                     />
 
                 <TextView
                     android:id="@+id/addToWishListTxt"
