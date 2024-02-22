@@ -16,7 +16,6 @@ import com.example.shoppingapp.ui_layer.Sheets.Activitys.ProductDetails.ProductD
 
 class ProductSaleAdapter(var saleList: ArrayList<Products>, var context: Context) :
     RecyclerView.Adapter<ProductSaleAdapter.MyViewHolder>() {
-
     inner class MyViewHolder(var binding: ProductListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
