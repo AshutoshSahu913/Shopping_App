@@ -29,6 +29,7 @@ class ProductDetailsActivity : AppCompatActivity() {
     lateinit var productImageAdapter: ProductImagesAdapter
     lateinit var productColorAdapter: ProductColorAdapter
     lateinit var productSizesAdapter: ProductSizesAdapter
+    private var quantity = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -131,20 +132,45 @@ class ProductDetailsActivity : AppCompatActivity() {
 
         binding.addToCartBtn.setOnClickListener {
             binding.addToCartBtn.text = "Added to cart"
-            binding.addToCartBtn.isEnabled=false
+            binding.addToCartBtn.isEnabled = false
             Toast.makeText(this, "Added to Cart", Toast.LENGTH_SHORT).show()
         }
 
         binding.addToWishList.setOnClickListener {
             binding.like.setBackgroundResource(R.drawable.baseline_favorite_24)
             binding.addToWishListTxt.text = "Added to WishList"
-            binding.addToWishList.isEnabled=false
+            binding.addToWishList.isEnabled = false
             Toast.makeText(this, "Added to WishList", Toast.LENGTH_SHORT).show()
         }
+        binding.buyNowBtn.setBackgroundResource(R.drawable.back_btn)
+
         binding.buyNowBtn.setOnClickListener {
             Toast.makeText(this, "Buy Now", Toast.LENGTH_SHORT).show()
+            binding.buyNowBtn.setBackgroundResource(R.drawable.back)
             startActivity(Intent(this@ProductDetailsActivity, CheckOutActivity::class.java))
         }
+
+
+        // Initialize quantity display
+        updateQuantityDisplay()
+
+        // Increment quantity when plus button is clicked
+        binding.plusBtn.setOnClickListener {
+            quantity++
+            updateQuantityDisplay()
+        }
+
+        // Decrement quantity when minus button is clicked
+        binding.minusBtn.setOnClickListener {
+            if (quantity > 0) {
+                quantity--
+                updateQuantityDisplay()
+            }
+        }
+    }
+
+    private fun updateQuantityDisplay() {
+        binding.productDetailsItemQty.text = quantity.toString()
     }
 
     private fun getColorsFromJson(json: String?): List<ProductColor> {
