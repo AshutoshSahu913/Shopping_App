@@ -20,7 +20,7 @@
                 android:id="@+id/productDetailsImg"
                 android:layout_width="0dp"
                 android:layout_height="500dp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 android:src="@drawable/frock4"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
             <View
                 android:id="@+id/view4"
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="120dp"
                 android:background="@drawable/trans_back"
                 app:layout_constraintBottom_toBottomOf="@+id/productDetailsImg"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
                 android:id="@+id/backBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="5dp"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/background_btn"
                 android:backgroundTint="@color/white"
@@ -78,162 +78,90 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:orientation="horizontal"
+                android:layout_marginTop="5dp"
                 app:layout_constraintStart_toStartOf="@+id/ratingBar"
                 app:layout_constraintTop_toBottomOf="@+id/ratingBar">
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:fontFamily="@font/montserrat_bold"
                     android:text="Rs: "
+                    android:gravity="center"
                     android:textColor="@color/black"
                     android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/productDetailsPrice"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/montserrat_extra_bold"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center_vertical"
                     android:text="5740"
                     android:textColor="@color/black"
-                    android:textSize="24sp" />
+                    android:textSize="25sp" />
             </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvProductImages"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout20"
+                app:layout_constraintStart_toStartOf="@+id/ratingBar"
+                app:layout_constraintTop_toBottomOf="@+id/productDetailsImg"
+                tools:itemCount="5"
+                tools:listitem="@layout/product_images_list" />
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="Size"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/linearLayout8"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
+                app:layout_constraintTop_toBottomOf="@+id/rvProductImages" />
 
-            <TextView
-                android:id="@+id/seeMoreDetails"
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSizes"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginEnd="15dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/montserrat_medium"
-                android:gravity="end"
-                android:text="See more"
-                android:textColor="@color/appColor"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/textView10"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout8" />
-
-            <LinearLayout
-                android:id="@+id/sizeLayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView10">
-
-                <TextView
-                    android:id="@+id/productDetailsSize1"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/edit_text_shape"
-                    android:gravity="center"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:text="UK 8"
-                    android:textSize="12sp" />
-
-
-                <TextView
-                    android:id="@+id/productDetailsSize2"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="5dp"
-                    android:gravity="center"
-                    android:background="@drawable/edit_text_shape"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:text="UK 10"
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:id="@+id/productDetailsSize3"
-                    android:layout_width="40dp"
-                    android:gravity="center"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="5dp"
-                    android:background="@drawable/edit_text_shape"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:text="UK 12"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
+                app:layout_constraintStart_toStartOf="@+id/ratingBar"
+                app:layout_constraintTop_toBottomOf="@+id/textView10"
+                tools:itemCount="10"
+                tools:listitem="@layout/sizes_list" />
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="Color"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
-                app:layout_constraintTop_toBottomOf="@+id/sizeLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/rvSizes" />
 
-
-            <LinearLayout
-                android:id="@+id/colorLayout"
-                android:layout_width="wrap_content"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvColors"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11">
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout20"
+                app:layout_constraintStart_toStartOf="@+id/rvSizes"
+                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                tools:itemCount="1"
+                tools:listitem="@layout/color_list" />
 
-
-                <ImageButton
-                    android:id="@+id/color1"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/color_shape1" />
-
-                <ImageButton
-                    android:layout_width="40dp"
-                    android:id="@+id/color2"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="5dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/color_shape2" />
-
-                <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/color3"
-                    android:layout_marginStart="5dp"
-                    android:background="@android:color/transparent"
-                    android:elevation="10dp"
-                    android:src="@drawable/color_shape3" />
-
-                <ImageButton
-                    android:layout_width="40dp"
-                    android:id="@+id/color4"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="5dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/color_shape4" />
-            </LinearLayout>
 
 
             <TextView
@@ -241,27 +169,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="Specification"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="@+id/textView11"
-                app:layout_constraintTop_toBottomOf="@+id/colorLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/rvColors" />
 
             <TextView
                 android:id="@+id/productDetailsDescription"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:layout_marginEnd="10dp"
                 android:fontFamily="@font/montserrat_regular"
                 android:lineSpacingExtra="4dp"
                 android:text="Dress\nMaterial : Linen\nMaterial Composition : 100% Linen\nPlease bear in mind that the photo may be slightly different from the actual item in terms of color due to lighting conditions or the display used to view"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/colorLayout"
+                app:layout_constraintEnd_toEndOf="@+id/rvColors"
+
+                app:layout_constraintStart_toStartOf="@+id/rvColors"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -308,20 +235,19 @@
                 <ImageButton
                     android:id="@+id/like"
                     android:layout_width="wrap_content"
-                    android:layout_gravity="center"
                     android:layout_height="wrap_content"
+
                     android:layout_marginEnd="5dp"
                     android:background="@android:color/transparent"
-                    android:src="@drawable/heart_svgrepo_com"
-                     />
+                    android:src="@drawable/heart_svgrepo_com" />
 
                 <TextView
                     android:id="@+id/addToWishListTxt"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:fontFamily="@font/montserrat_medium"
-                    android:gravity="end"
+                    android:gravity="center"
                     android:text="Add to Wishlist"
                     android:textColor="@color/appColor"
                     android:textSize="15sp"
@@ -330,50 +256,52 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/linearLayout20"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
                 android:orientation="horizontal"
-                app:layout_constraintBottom_toBottomOf="@+id/sizeLayout"
+                app:layout_constraintBottom_toBottomOf="@+id/productDetailsImg"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="10dp"
-                app:layout_constraintTop_toTopOf="@+id/sizeLayout">
+                app:layout_constraintTop_toBottomOf="@+id/ratingBar">
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="40dp"
                     android:id="@+id/minusBtn"
-                    android:layout_height="40dp"
-                    android:background="@drawable/edit_text_shape_blur"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_shape"
+                    android:backgroundTint="@color/blurText"
                     android:fontFamily="@font/montserrat_medium"
                     android:gravity="center"
                     android:text="-"
+                    android:textColor="@color/white"
                     android:textSize="30sp" />
 
 
                 <TextView
                     android:id="@+id/productDetailsItemQty"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/montserrat_medium"
                     android:layout_marginStart="5dp"
                     android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center"
                     android:text="1"
-                    android:textColor="@color/appColor"
-                    android:textSize="25sp"
+                    android:textColor="@color/black"
+                    android:textSize="30sp"
                     android:textStyle="bold" />
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/plusBtn"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/edit_text_shape_blur"
+                    android:backgroundTint="@color/appColor"
                     android:fontFamily="@font/montserrat_medium"
                     android:text="+"
+                    android:textColor="@color/white"
                     android:textSize="30sp" />
-
-
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -8,10 +8,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.shoppingapp.Comman.ProductColor
 import com.example.shoppingapp.Comman.Products
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.ProductListBinding
 import com.example.shoppingapp.ui_layer.Sheets.Activitys.ProductDetails.ProductDetailsActivity
+import com.google.gson.Gson
 
 
 class ProductSaleAdapter(var saleList: ArrayList<Products>, var context: Context) :
@@ -40,10 +42,15 @@ class ProductSaleAdapter(var saleList: ArrayList<Products>, var context: Context
                 val intent = Intent(context, ProductDetailsActivity::class.java)
                 intent.putExtra("name", model.productName)
                 intent.putExtra("price", model.productPrice.toString())
-//                var img=binding.productImg.load(model.productDisplayImage)
                 intent.putExtra("img", model.productDisplayImage)
-//                intent.putExtra("code", model.productCode)
-//                intent.putExtra("discount", model.productDiscountPercent)
+                intent.putExtra("description", model.productDes)
+                intent.putStringArrayListExtra("sizes", model.productSize)
+                intent.putStringArrayListExtra("images", model.productDisplayImages)
+
+
+//                // Serialize the list of productColor into JSON and pass it as an extra
+//                val productColorJson = Gson().toJson(model.productColor)
+//                intent.putExtra("productColorJson", productColorJson)
                 context.startActivity(intent)
             }
         }
