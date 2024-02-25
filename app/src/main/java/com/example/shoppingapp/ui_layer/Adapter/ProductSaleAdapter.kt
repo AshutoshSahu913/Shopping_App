@@ -6,6 +6,7 @@ import android.content.Intent
 import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.shoppingapp.Comman.ProductColor
@@ -47,10 +48,10 @@ class ProductSaleAdapter(var saleList: ArrayList<Products>, var context: Context
                 intent.putStringArrayListExtra("sizes", model.productSize)
                 intent.putStringArrayListExtra("images", model.productDisplayImages)
 
-
 //                // Serialize the list of productColor into JSON and pass it as an extra
-//                val productColorJson = Gson().toJson(model.productColor)
-//                intent.putExtra("productColorJson", productColorJson)
+                val productColorJson = Gson().toJson(model.productColor)
+
+                intent.putExtra("productColorJson", productColorJson)
                 context.startActivity(intent)
             }
         }
