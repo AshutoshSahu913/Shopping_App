@@ -37,6 +37,7 @@ class ProductSaleAdapter(var saleList: ArrayList<Products>, var context: Context
                 productPrice.text =
                     "${model.productPrice!! - (model.productDiscountPercent!! / 100.0) * model.productPrice!!}"
 
+
             }
 
             itemView.setOnClickListener {
@@ -52,6 +53,9 @@ class ProductSaleAdapter(var saleList: ArrayList<Products>, var context: Context
                 val productColorJson = Gson().toJson(model.productColor)
 
                 intent.putExtra("productColorJson", productColorJson)
+                intent.putExtra("discount",model.productDiscountPercent.toString())
+                intent.putExtra("code",model.productCode)
+
                 context.startActivity(intent)
             }
         }

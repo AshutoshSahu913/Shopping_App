@@ -7,6 +7,7 @@ import android.widget.ProgressBar
 import androidx.activity.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.shoppingapp.Comman.Products
@@ -52,7 +53,7 @@ class AllProductActivity : AppCompatActivity() {
         allProductAdapter = ProductSaleAdapter(products, this)
 
         binding.rvAllProduct.layoutManager =
-            StaggeredGridLayoutManager(2, LinearLayoutManager.VERTICAL)
+            GridLayoutManager(this,2, LinearLayoutManager.VERTICAL,false)
 
         binding.rvAllProduct.adapter = allProductAdapter
 

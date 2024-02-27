@@ -17,8 +17,15 @@ class ProductDetailsViewModel(var context: Context) : ViewModel() {
     private val _productImg = MutableLiveData<String>()
     val productImg: LiveData<String> = _productImg
 
+
     private val _productDescription = MutableLiveData<String>()
     val productDescription: LiveData<String> = _productDescription
+
+    private val _productDis = MutableLiveData<String>()
+    val productDis: LiveData<String> = _productDis
+
+    private val _productCode = MutableLiveData<String>()
+    val productCode: LiveData<String> = _productCode
 
     private val _productImages = MutableLiveData<ArrayList<String>>()
     val productImages: LiveData<ArrayList<String>> = _productImages
@@ -33,6 +40,8 @@ class ProductDetailsViewModel(var context: Context) : ViewModel() {
         name: String,
         price: String,
         image: String,
+        discount:String,
+        code:String,
         description: String,
         images: ArrayList<String>,
         colors: List<ProductColor>,
@@ -41,6 +50,8 @@ class ProductDetailsViewModel(var context: Context) : ViewModel() {
         _productName.value = name
         _productPrice.value = price
         _productImg.value = image
+        _productDis.value=discount
+        _productCode.value=code
         _productDescription.value = description
         _productImages.value = images
         _productColors.value = colors

@@ -4,17 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.shoppingapp.Comman.Products
 import com.example.shoppingapp.ui_layer.Adapter.WishListAdapter
 
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.FragmentWishListBinding
+import com.example.shoppingapp.ui_layer.Adapter.ProductSaleAdapter
 import com.example.shoppingapp.ui_layer.Models.ProductModel
+import com.example.shoppingapp.ui_layer.Sheets.Fragments.Home.HomeFragmentViewModel
 
 
 class WishListFragment : Fragment() {
     lateinit var binding: FragmentWishListBinding
+    lateinit var wishListViewModel: WishListFragmentViewModel
+    private var products = ArrayList<Products>()
+    private lateinit var wishListAdapter: WishListAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -26,112 +37,34 @@ class WishListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        val _wishlistViewModel by viewModels<WishListFragmentViewModel>(
+            factoryProducer = {
+                object : ViewModelProvider.Factory {
+                    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                        return WishListFragmentViewModel(requireActivity()) as T
+                    }
+                }
+            }
+        )
+
+        wishListViewModel = _wishlistViewModel
+        wishListViewModel
+
         // Inflate the layout for this fragment
         binding = FragmentWishListBinding.inflate(inflater, container, false)
 
-//        setUpRecyclerView()
+        products = arrayListOf()
 
+        wishListAdapter = WishListAdapter(products, requireContext())
+        binding.rvFav.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
+        binding.rvFav.adapter = wishListAdapter
+
+        wishListViewModel.getDataFromWishlist {
+            wishListAdapter.updateWishList(it)
+
+        }
         return binding.root
     }
-
-    /*private fun setUpRecyclerView() {
-        val list = ArrayList<ProductModel>()
-        list.add(
-            ProductModel(
-                productName = "One Shoulder \n" + "Linen Dress",
-                productPrice = "5740",
-                productImg = R.drawable.frock1,
-                productCode = "GF1202",
-                productDis = "7180",
-                productOffer = "20% off",
-                productSize = "US12",
-                productColor = R.drawable.color_shape1
-            )
-        )
-
-        list.add(
-            ProductModel(
-                productName = "Cross Stitch \n" +
-                        "Top",
-                productPrice = "3000",
-                productImg = R.drawable.frock2,
-                productCode = "GF1267",
-                productDis = "5400",
-                productOffer = "20% off",
-                productSize = "US8",
-                productColor = R.drawable.color_shape2
-            )
-        )
-        list.add(
-            ProductModel(
-                productName = " Puff Sleeve \nDress",
-                productPrice = "2740",
-                productImg = R.drawable.frock3,
-                productCode = "GF1202",
-                productDis = "4680",
-                productOffer = "15% off",
-                productSize = "US10",
-                productColor = R.drawable.color_shape3
-
-            )
-        )
-        list.add(
-            ProductModel(
-                productName = "One Shoulder \n" + "Linen Dress",
-                productPrice = "5740",
-                productImg = R.drawable.frock4,
-                productCode = "GF1201",
-                productDis = "7180",
-                productOffer = "20% off",
-                productSize = "US12",
-                productColor = R.drawable.color_shape4
-            )
-        )
-
-        list.add(
-            ProductModel(
-                productName = "Cross Stitch \n" +
-                        "Top",
-                productPrice = "3000",
-                productImg = R.drawable.frock2,
-                productCode = "GF1267",
-                productDis = "5400",
-                productOffer = "20% off",
-                productSize = "US8",
-                productColor = R.drawable.color_shape2
-            )
-        )
-        list.add(
-            ProductModel(
-                productName = " Puff Sleeve \nDress",
-                productPrice = "2740",
-                productImg = R.drawable.frock3,
-                productCode = "GF1202",
-                productDis = "4680",
-                productOffer = "15% off",
-                productSize = "US10",
-                productColor = R.drawable.color_shape3
-
-            )
-        )
-        list.add(
-            ProductModel(
-                productName = "One Shoulder \n" + "Linen Dress",
-                productPrice = "5740",
-                productImg = R.drawable.frock4,
-                productCode = "GF1201",
-                productDis = "7180",
-                productOffer = "20% off",
-                productSize = "US12",
-                productColor = R.drawable.color_shape4
-            )
-        )
-
-        val adapter = WishListAdapter(list, requireContext())
-        binding.rvFav.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvFav.adapter = adapter
-    }*/
-
-
 }
