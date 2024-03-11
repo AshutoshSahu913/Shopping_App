@@ -6,17 +6,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.shoppingapp.Comman.Products
 import com.example.shoppingapp.ui_layer.Adapter.CartAdapter
 import com.example.shoppingapp.ui_layer.Sheets.Activitys.CheckOut.CheckOutActivity
 
 import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.FragmentCartBinding
+import com.example.shoppingapp.ui_layer.Adapter.WishListAdapter
 import com.example.shoppingapp.ui_layer.Models.ProductModel
+import com.example.shoppingapp.ui_layer.Sheets.Fragments.WishList.WishListFragmentViewModel
 
 
 class CartFragment : Fragment() {
     lateinit var binding: FragmentCartBinding
+    lateinit var cartFragmentViewModel: CartFragmentViewModel
+    private var products = ArrayList<Products>()
+    private lateinit var cartAdapter: CartAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,163 +39,45 @@ class CartFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        val _cartViewModel by viewModels<CartFragmentViewModel>(
+            factoryProducer = {
+                object : ViewModelProvider.Factory {
+                    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+                        return CartFragmentViewModel(requireActivity()) as T
+                    }
+                }
+            }
+        )
+
+        cartFragmentViewModel = _cartViewModel
+        cartFragmentViewModel
+
+
         // Inflate the layout for this fragment
         binding = FragmentCartBinding.inflate(inflater, container, false)
-//        setUpRecyclerView()
+//
+//       setUpRecyclerView()
+
+        products = arrayListOf()
+
+        cartAdapter = CartAdapter(products, requireContext())
+        binding.rvCart.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+
+        binding.rvCart.adapter = cartAdapter
+
+        cartFragmentViewModel.getDataFromCartList {
+            cartAdapter.updateCartList(it)
+        }
 
         binding.checkoutBtn.setOnClickListener {
             requireContext().startActivity(Intent(requireContext(), CheckOutActivity::class.java))
         }
 
         binding.backBtn.setOnClickListener {
-
+            activity?.finish()
         }
         return binding.root
     }
-
-
-//    private fun setUpRecyclerView() {
-//
-//        val list = ArrayList<ProductModel>()
-//        list.add(
-//            ProductModel(
-//                productName = "One Shoulder \n" + "Linen Dress",
-//                productPrice = "5740",
-//                productImg = R.drawable.frock1,
-//                productCode = "GF1202",
-//                productDis = "7180",
-//                productOffer = "20% off",
-//                productSize = "US12",
-//                productColor = R.drawable.color_shape1,
-//                productItemCount = 2
-//
-//            )
-//        )
-//
-//        list.add(
-//            ProductModel(
-//                productName = "Cross Stitch \n" +
-//                        "Top",
-//                productPrice = "3000",
-//                productImg = R.drawable.frock2,
-//                productCode = "GF1222",
-//                productDis = "5280",
-//                productOffer = "20% off",
-//                productSize = "US10",
-//                productColor = R.drawable.color_shape3,
-//                productItemCount = 1
-//            )
-//        )
-//
-//
-//        list.add(
-//            ProductModel(
-//                productName = " Puff Sleeve\nDress",
-//                productPrice = "3000",
-//                productImg = R.drawable.frock2,
-//                productCode = "GF1222",
-//                productDis = "5280",
-//                productOffer = "20% off",
-//                productSize = "US10",
-//                productColor = R.drawable.color_shape3,
-//                productItemCount = 1
-//            )
-//        )
-//
-//        list.add(
-//            ProductModel(
-//                productName = "One Shoulder \n" + "Linen Dress",
-//                productPrice = "5740",
-//                productImg = R.drawable.frock1,
-//                productCode = "GF1202",
-//                productDis = "7180",
-//                productOffer = "20% off",
-//                productSize = "US12",
-//                productColor = R.drawable.color_shape1,
-//                productItemCount = 2
-//
-//            )
-//        )
-//
-//        list.add(
-//            ProductModel(
-//                productName = "Cross Stitch \n" +
-//                        "Top",
-//                productPrice = "3000",
-//                productImg = R.drawable.frock2,
-//                productCode = "GF1222",
-//                productDis = "5280",
-//                productOffer = "20% off",
-//                productSize = "US10",
-//                productColor = R.drawable.color_shape3,
-//                productItemCount = 1
-//            )
-//        )
-//
-//
-//        list.add(
-//            ProductModel(
-//                productName = " Puff Sleeve\nDress",
-//                productPrice = "3000",
-//                productImg = R.drawable.frock2,
-//                productCode = "GF1222",
-//                productDis = "5280",
-//                productOffer = "20% off",
-//                productSize = "US10",
-//                productColor = R.drawable.color_shape3,
-//                productItemCount = 1
-//            )
-//        )
-//
-//        list.add(
-//            ProductModel(
-//                productName = "One Shoulder \n" + "Linen Dress",
-//                productPrice = "5740",
-//                productImg = R.drawable.frock1,
-//                productCode = "GF1202",
-//                productDis = "7180",
-//                productOffer = "20% off",
-//                productSize = "US12",
-//                productColor = R.drawable.color_shape1,
-//                productItemCount = 2
-//
-//            )
-//        )
-//
-//        list.add(
-//            ProductModel(
-//                productName = "Cross Stitch \n" +
-//                        "Top",
-//                productPrice = "3000",
-//                productImg = R.drawable.frock2,
-//                productCode = "GF1222",
-//                productDis = "5280",
-//                productOffer = "20% off",
-//                productSize = "US10",
-//                productColor = R.drawable.color_shape3,
-//                productItemCount = 1
-//            )
-//        )
-//
-//
-//        list.add(
-//            ProductModel(
-//                productName = " Puff Sleeve\nDress",
-//                productPrice = "3000",
-//                productImg = R.drawable.frock2,
-//                productCode = "GF1222",
-//                productDis = "5280",
-//                productOffer = "20% off",
-//                productSize = "US10",
-//                productColor = R.drawable.color_shape3,
-//                productItemCount = 1
-//            )
-//        )
-//
-//
-//        val adapter = CartAdapter(list, requireContext())
-//        binding.rvCart.layoutManager = LinearLayoutManager(requireContext())
-//        binding.rvCart.adapter = adapter
-//    }
-
 }

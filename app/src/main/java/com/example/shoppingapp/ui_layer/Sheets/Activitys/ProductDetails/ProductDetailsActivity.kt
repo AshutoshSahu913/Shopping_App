@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import coil.load
+import com.example.shoppingapp.Comman.PRODUCT_CART_PATH
 import com.example.shoppingapp.Comman.PRODUCT_PATH
 import com.example.shoppingapp.Comman.PRODUCT_WISHLIST_PATH
 import com.example.shoppingapp.Comman.ProductColor
@@ -156,9 +157,19 @@ class ProductDetailsActivity : AppCompatActivity() {
         }
 
         binding.addToCartBtn.setOnClickListener {
-            binding.addToCartBtn.text = "Added to cart"
-            binding.addToCartBtn.isEnabled = false
-            Toast.makeText(this, "Added to Cart", Toast.LENGTH_SHORT).show()
+            FirebaseFirestore.getInstance().collection(PRODUCT_CART_PATH).document()
+                .set(product)
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        binding.addToCartBtn.setBackgroundResource(R.drawable.background_btn)
+                        binding.addToWishListTxt.text = "Added to Cart"
+                        binding.addToWishList.isEnabled = false
+                        Toast.makeText(this, "Added to Cart", Toast.LENGTH_SHORT).show()
+                        finish()
+                    } else {
+                        Toast.makeText(this, "Not added to Cart", Toast.LENGTH_SHORT).show()
+                    }
+                }
         }
 
         binding.addToWishList.setOnClickListener {
@@ -205,7 +216,6 @@ class ProductDetailsActivity : AppCompatActivity() {
             }
         }
     }
-
     private fun updateQuantityDisplay() {
         binding.productDetailsItemQty.text = quantity.toString()
     }

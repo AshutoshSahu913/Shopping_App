@@ -107,4 +107,18 @@
         tools:listitem="@layout/favourite_list" />
 
 
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/loaderWishlist"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:padding="5dp"
+
+        app:SpinKit_Color="@color/appColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

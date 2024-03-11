@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.example.shoppingapp.Comman.Products
+import com.example.shoppingapp.R
 import com.example.shoppingapp.databinding.FavouriteListBinding
 
 class CartAdapter(var cartList: ArrayList<Products>, var context: Context) :
@@ -18,30 +20,33 @@ class CartAdapter(var cartList: ArrayList<Products>, var context: Context) :
 
                 hideLayout.visibility = View.VISIBLE
 
-//                favImg.setImageResource(model.productImg!!)
-//                favProductName.text = model.productName
-//                favProductPrice.text = model.productPrice
-//                favProductColor.setBackgroundResource(model.productColor!!)
-//                favProductSize.text = model.productSize
-//                favProductCode.text = model.productCode
-//
+                favImg.load(model.productDisplayImage) {
+                    placeholder(R.drawable.placeholder)
+                }
+                favProductName.text = model.productName
+                favProductPrice.text = model.productPrice.toString()
+                favProductCode.text = model.productCode
+
 //                itemQty.text = model.productItemCount.toString()
 
                 deleteBtn.setOnClickListener {
                     cartList.removeAt(position)
                     notifyDataSetChanged()
                 }
-
             }
-
         }
+    }
 
+
+    fun updateCartList(list: ArrayList<Products>) {
+        cartList.clear()
+        cartList.addAll(list)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        var binding = FavouriteListBinding.inflate(LayoutInflater.from(context), parent, false)
+        val binding = FavouriteListBinding.inflate(LayoutInflater.from(context), parent, false)
         return MyViewHolder(binding)
-
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

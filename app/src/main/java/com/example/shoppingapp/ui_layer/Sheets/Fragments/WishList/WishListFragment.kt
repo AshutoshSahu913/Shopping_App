@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -19,6 +20,8 @@ import com.example.shoppingapp.databinding.FragmentWishListBinding
 import com.example.shoppingapp.ui_layer.Adapter.ProductSaleAdapter
 import com.example.shoppingapp.ui_layer.Models.ProductModel
 import com.example.shoppingapp.ui_layer.Sheets.Fragments.Home.HomeFragmentViewModel
+import com.github.ybq.android.spinkit.sprite.Sprite
+import com.github.ybq.android.spinkit.style.Circle
 
 
 class WishListFragment : Fragment() {
@@ -50,9 +53,12 @@ class WishListFragment : Fragment() {
         wishListViewModel = _wishlistViewModel
         wishListViewModel
 
+
         // Inflate the layout for this fragment
         binding = FragmentWishListBinding.inflate(inflater, container, false)
 
+        loader()
+        binding.loaderWishlist.visibility = View.VISIBLE
         products = arrayListOf()
 
         wishListAdapter = WishListAdapter(products, requireContext())
@@ -66,5 +72,11 @@ class WishListFragment : Fragment() {
 
         }
         return binding.root
+    }
+
+    fun loader() {
+        val progressBar = binding.loaderWishlist as ProgressBar
+        val circle: Sprite = Circle()
+        progressBar.indeterminateDrawable = circle
     }
 }

@@ -41,7 +41,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:fontFamily="@font/montserrat_medium"
-
             android:text="One Shoulder\nLinen Dress"
             android:textColor="@color/black"
             android:textSize="12sp"
